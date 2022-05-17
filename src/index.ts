@@ -1,6 +1,11 @@
 import app from "./app";
+import "./db";
 
 // init app
-app.listen(app.get("port"), () => {
-  console.log(`Server on port ${app.get("port")}`);
-});
+function main() {
+  app.listen(app.get("port"), () => {
+    console.log(`Server on port ${app.get("port")}`);
+  });
+}
+
+main();
