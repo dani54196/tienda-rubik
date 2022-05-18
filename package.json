@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node build/index.js",
     "build": "npx tsc",
-    "dev": "npx tsc --watch",
-    "deve": "nodemon build/index.js",
+    "dev:ts": "npx tsc --watch",
+    "dev": "nodemon build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
