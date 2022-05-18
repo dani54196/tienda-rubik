@@ -1,10 +1,10 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-
 import dotenv from "dotenv";
 dotenv.config();
 
+import studentsRoutes from "./routes/students.routes";
 const app = express();
 
 // config
@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
+app.use("/api/students", studentsRoutes);
 
 // index route
 app.get("/", (req, res) => {

@@ -13,3 +13,4 @@ exports.db = promise_1.default.createPool({
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
 });
+//# sourceMappingURL=db.js.map

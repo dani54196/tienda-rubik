@@ -1,4 +1,7 @@
-@API=http://localhost:8080/
+@API=http://localhost:8080
 
 ### Index
 GET {{API}}
+
+### Get All students
+GET {{API}}/api/students

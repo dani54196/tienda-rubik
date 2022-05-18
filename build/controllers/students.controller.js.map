@@ -1,0 +1,1 @@
+{"version":3,"file":"students.controller.js","sourceRoot":"","sources":["../../src/controllers/students.controller.ts"],"names":[],"mappings":";;;;;;;;;;;;AACA,8BAA2B;AAEpB,MAAM,cAAc,GAAG,CAAO,GAAY,EAAE,GAAa,EAAE,EAAE;IAClE,MAAM,QAAQ,GAAG,MAAM,OAAE,CAAC,KAAK,CAAC,uBAAuB,CAAC,CAAC;IACzD,GAAG,CAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;AACrB,CAAC,CAAA,CAAC;AAHW,QAAA,cAAc,kBAGzB"}
