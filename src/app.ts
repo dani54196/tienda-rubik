@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-import usersRoutes from "./routes/users.routes";
+import indexRoutes from "./routes/index.routes";
 
 const app: Application = express();
 
@@ -17,12 +17,6 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-//app.use("/api/students", studentsRoutes);
-app.use("/api/users", usersRoutes);
-
-// index route
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to the API" });
-});
+app.use("/", indexRoutes);
 
 export default app;

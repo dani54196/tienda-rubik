@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UserModel from "../models/user";
+import UserModel from "../models/User";
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -17,4 +17,13 @@ export const getUser = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}
+};
+
+export const createUser = async (req: Request, res: Response) => {
+  try {
+    const user = await UserModel.create(req.body);
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

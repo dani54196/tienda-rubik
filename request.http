@@ -8,3 +8,16 @@ GET {{API}}/api/users
 
 ### Get a user
 GET {{API}}/api/users/1
+
+### Create a user
+POST {{API}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Peter",
+  "email": "peter@mail.com",
+  "password": "123456",
+  "role": "user",
+  "address": "avenida siempre viva",
+  "phone": 111111111
+}

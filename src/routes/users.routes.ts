@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUsers, getUser } from "../controllers/users.controller";
+import { getUsers, getUser, createUser } from "../controllers/users.controller";
 
 class UserRoutes {
   public router: Router = Router();
@@ -11,8 +11,10 @@ class UserRoutes {
   config(): void {
     this.router.get("/", getUsers);
     this.router.get("/:id", getUser);
+    this.router.post("/", createUser);
   }
 }
 
 const userRoutes = new UserRoutes();
 export default userRoutes.router;
+
