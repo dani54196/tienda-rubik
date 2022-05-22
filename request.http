@@ -4,4 +4,4 @@
 GET {{API}}
 
 ### Get All students
-GET {{API}}/api/students
+GET {{API}}/api/users
