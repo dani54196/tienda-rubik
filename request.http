@@ -7,17 +7,17 @@ GET {{API}}
 GET {{API}}/api/users
 
 ### Get a user
-GET {{API}}/api/users/1
+GET {{API}}/api/users/2
 
 ### Create a user
 POST {{API}}/api/users
 Content-Type: application/json
 
 {
-  "name": "Peter",
-  "email": "peter@mail.com",
+  "name": "Markitos",
+  "email": "Mark@mail.com",
   "password": "123456",
-  "role": "user",
+  "role": "moderator",
   "address": "avenida siempre viva",
   "phone": 111111111
 }
