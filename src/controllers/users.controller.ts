@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import UserModel from "../models/User";
 
 class UsersController {
-
   public async getUsers(req: Request, res: Response): Promise<Response> {
     try {
       const users = await UserModel.findAll();
@@ -36,36 +35,35 @@ class UsersController {
     }
   }
 
+  public async updateUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const userUpdate = await UserModel.update(req.body, {
+        where: {
+          user_id: req.params.id,
+        },
+      });
+      return res.json({ "user update": "ok" });
+    } catch (err) {
+      return res.status(500).json({
+        error: err,
+      });
+    }
+  }
+
+  public async deleteUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const userDelete = await UserModel.destroy({
+        where: {
+          user_id: req.params.id,
+        },
+      });
+      return res.json({ "user delete": "ok" });
+    } catch (err) {
+      return res.status(500).json({
+        error: err,
+      });
+    }
+  }
 }
 
 export const usersController = new UsersController();
-
-/*
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    const users = await UserModel.findAll();
-    res.json(users);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
-
-export const getUser = async (req: Request, res: Response) => {
-  try {
-    const user = await UserModel.findByPk(req.params.id);
-    res.json(user);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
-
-export const createUser = async (req: Request, res: Response) => {
-  try {
-    const user = await UserModel.create(req.body);
-    res.json(user);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
-
-*/

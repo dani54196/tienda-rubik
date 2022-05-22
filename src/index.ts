@@ -1,8 +1,8 @@
-import app from "./app";
-import "./db";
-
 import dotenv from "dotenv";
 dotenv.config();
+
+import app from "./app";
+import "./db";
 
 // init app
 function main() {

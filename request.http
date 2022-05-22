@@ -21,3 +21,19 @@ Content-Type: application/json
   "address": "avenida siempre viva",
   "phone": 111111111
 }
+
+### Update a user
+PUT {{API}}/api/users/2
+Content-Type: application/json
+
+{
+  "name": "Humberti Gonzales",
+  "email": "humber@mail.com",
+  "password": "11231236",
+  "role": "moderator",
+  "address": "viva la Gloria",
+  "phone": 23232323
+}
+
+### Delete a user
+DELETE {{API}}/api/users/1
