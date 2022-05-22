@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUsers } from "../controllers/users.controller";
+import { getUsers, getUser } from "../controllers/users.controller";
 
 class UserRoutes {
   public router: Router = Router();
@@ -10,6 +10,7 @@ class UserRoutes {
 
   config(): void {
     this.router.get("/", getUsers);
+    this.router.get("/:id", getUser);
   }
 }
 

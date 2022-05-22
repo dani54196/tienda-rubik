@@ -3,5 +3,8 @@
 ### Index
 GET {{API}}
 
-### Get All students
+### Get all users
 GET {{API}}/api/users
+
+### Get a user
+GET {{API}}/api/users/1
