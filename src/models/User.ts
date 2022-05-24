@@ -1,5 +1,4 @@
 import {
-  Sequelize,
   Model,
   DataTypes,
   InferAttributes,
@@ -26,6 +25,7 @@ const UserModel = sequelize.define<UserModel>("users", {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
+    unique: true,
   },
   name: {
     type: new DataTypes.STRING(128),
@@ -34,6 +34,7 @@ const UserModel = sequelize.define<UserModel>("users", {
   email: {
     type: new DataTypes.STRING(128),
     allowNull: true,
+    unique: true,
   },
   password: {
     type: new DataTypes.STRING(128),

@@ -7,19 +7,19 @@ GET {{API}}
 GET {{API}}/api/users
 
 ### Get a user
-GET {{API}}/api/users/2
+GET {{API}}/api/users/1
 
 ### Create a user
 POST {{API}}/api/users
 Content-Type: application/json
 
 {
-  "name": "Markitos",
-  "email": "Mark@mail.com",
+  "name": "angela",
+  "email": "angelnaa@mail.com",
   "password": "123456",
-  "role": "moderator",
-  "address": "avenida siempre viva",
-  "phone": 111111111
+  "role": "user",
+  "address": "le park",
+  "phone": 2222222
 }
 
 ### Update a user
@@ -36,4 +36,8 @@ Content-Type: application/json
 }
 
 ### Delete a user
-DELETE {{API}}/api/users/1
+DELETE {{API}}/api/users/2
+
+### auth
+get {{API}}/api/auth
+

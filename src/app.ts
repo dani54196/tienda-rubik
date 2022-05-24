@@ -1,6 +1,7 @@
 import express, {Application} from "express";
 import morgan from "morgan";
 import cors from "cors";
+import helmet from "helmet";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.set("port", process.env.PORT || 3000);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+app.use(helmet())
 
 // routes
 app.use("/", indexRoutes);

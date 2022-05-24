@@ -5,7 +5,7 @@ class UsersController {
   public async getUsers(req: Request, res: Response): Promise<Response> {
     try {
       const users = await UserModel.findAll();
-      return res.json(users);
+      return res.status(200).json(users);
     } catch (err) {
       return res.status(500).json({
         error: err,
@@ -16,7 +16,12 @@ class UsersController {
   public async getUser(req: Request, res: Response): Promise<Response> {
     try {
       const user = await UserModel.findByPk(req.params.id);
-      return res.json(user);
+      // check if user exists
+      if (user == null) {
+        return res.status(404).json({ message: "user not exist" });
+      } else {
+        return res.status(200).json(user);
+      }
     } catch (err) {
       return res.status(500).json({
         error: err,
@@ -26,8 +31,21 @@ class UsersController {
 
   public async createUser(req: Request, res: Response): Promise<Response> {
     try {
+      //check if mail already exist
+      const mailInUse = await UserModel.findOne({
+        where: {
+          email: req.body.email,
+        },
+      });
+      if (mailInUse) {
+        return res.status(400).json({
+          error: "email already exist",
+        });
+      }
+      
       const user = await UserModel.create(req.body);
-      return res.json(user);
+      return res.status(201).json(user);
+
     } catch (err) {
       return res.status(500).json({
         error: err,
@@ -42,7 +60,7 @@ class UsersController {
           user_id: req.params.id,
         },
       });
-      return res.json({ "user update": "ok" });
+      return res.status(202).json({ message: "User update" });
     } catch (err) {
       return res.status(500).json({
         error: err,
@@ -57,7 +75,9 @@ class UsersController {
           user_id: req.params.id,
         },
       });
-      return res.json({ "user delete": "ok" });
+      return res.status(202).json({
+        mesasge: "user delete",
+      });
     } catch (err) {
       return res.status(500).json({
         error: err,
