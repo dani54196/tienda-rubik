@@ -31,7 +31,7 @@ class UsersController {
 
   public async createUser(req: Request, res: Response): Promise<Response> {
     try {
-      //check if mail already exist
+      // check if mail already exist
       const mailInUse = await UserModel.findOne({
         where: {
           email: req.body.email,
@@ -41,11 +41,11 @@ class UsersController {
         return res.status(400).json({
           error: "email already exist",
         });
+      } else {
+        // save user
+        const user = await UserModel.create(req.body);
+        return res.status(201).json(user);
       }
-      
-      const user = await UserModel.create(req.body);
-      return res.status(201).json(user);
-
     } catch (err) {
       return res.status(500).json({
         error: err,
