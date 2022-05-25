@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import UserModel from "../models/User";
+import User from "../models/User";
 
 class UsersController {
   public async getUsers(req: Request, res: Response): Promise<Response> {
     try {
-      const users = await UserModel.findAll();
+      const users = await User.findAll();
       return res.status(200).json(users);
     } catch (err) {
       return res.status(500).json({
@@ -15,7 +15,7 @@ class UsersController {
 
   public async getUser(req: Request, res: Response): Promise<Response> {
     try {
-      const user = await UserModel.findByPk(req.params.id);
+      const user = await User.findByPk(req.params.id);
       // check if user exists
       if (user == null) {
         return res.status(404).json({ message: "user not exist" });
@@ -32,7 +32,7 @@ class UsersController {
   public async createUser(req: Request, res: Response): Promise<Response> {
     try {
       // check if mail already exist
-      const mailInUse = await UserModel.findOne({
+      const mailInUse = await User.findOne({
         where: {
           email: req.body.email,
         },
@@ -43,7 +43,7 @@ class UsersController {
         });
       } else {
         // save user
-        const user = await UserModel.create(req.body);
+        const user = await User.create(req.body);
         return res.status(201).json(user);
       }
     } catch (err) {
@@ -55,7 +55,7 @@ class UsersController {
 
   public async updateUser(req: Request, res: Response): Promise<Response> {
     try {
-      const userUpdate = await UserModel.update(req.body, {
+      const userUpdate = await User.update(req.body, {
         where: {
           user_id: req.params.id,
         },
@@ -70,7 +70,7 @@ class UsersController {
 
   public async deleteUser(req: Request, res: Response): Promise<Response> {
     try {
-      const userDelete = await UserModel.destroy({
+      const userDelete = await User.destroy({
         where: {
           user_id: req.params.id,
         },
