@@ -57,5 +57,26 @@ GET {{host}}/api/productos
 Content-Type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6IkphY2tAbWFpbC5jb20iLCJpYXQiOjE2NTM3ODI3MTYsImV4cCI6MTY1NDM4NzUxNn0.un3LKKOd3IADYxqzHFByrRiyRCsr-ituv133WoObpv0
 
-### items
-GET {{host}}/api/items/2
+### get all items
+GET {{host}}/api/items
+
+### get a item
+GET {{host}}/api/items/1
+
+### Create a item
+POST {{host}}/api/items
+Content-Type: application/json
+
+{
+  "name": "time machine",
+  "description": "2x2 modification",
+  "image_url": "2x2.jpg",
+  "quantity": 2,
+  "price": 1200,
+  "magnet": 0,
+  "size": "6cm",
+  "category": "modification"
+}
+
+### delete a item
+DELETE {{host}}/api/items/2
