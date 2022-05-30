@@ -27,7 +27,7 @@ PUT {{API}}/api/users/2
 Content-Type: application/json
 
 {
-  "name": "Humberti Gonzales",
+  "name": "Steven Manani",
   "email": "humber@mail.com",
   "password": "11231236",
   "role": "moderator",
@@ -38,6 +38,19 @@ Content-Type: application/json
 ### Delete a user
 DELETE {{API}}/api/users/2
 
-### auth
-get {{API}}/api/auth
+#_______AUTH__________
+
+### login
+POST {{API}}/api/auth/login/signin
+Content-Type: application/json
+
+{
+  "email": "Jack@mail.com",
+  "password": "123456"
+}
+
+### route auth
+GET {{API}}/api/productos
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6IkphY2tAbWFpbC5jb20iLCJpYXQiOjE2NTM3ODI3MTYsImV4cCI6MTY1NDM4NzUxNn0.un3LKKOd3IADYxqzHFByrRiyRCsr-ituv133WoObpv0
 

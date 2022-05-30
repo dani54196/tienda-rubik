@@ -8,13 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sequelize = void 0;
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
 const sequelize_1 = require("sequelize");
 // import mysql from "mysql2/promise";
 exports.sequelize = new sequelize_1.Sequelize(process.env.MYSQL_DATABASE || "tienda", process.env.MYSQL_USER || "dani", process.env.MYSQL_PASSWORD || "root", {

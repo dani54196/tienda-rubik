@@ -20,39 +20,43 @@ interface UserModel
   phone: number;
 }
 
-const UserModel = sequelize.define<UserModel>("users", {
-  user_id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-    unique: true,
+const UserModel = sequelize.define<UserModel>(
+  "users",
+  {
+    user_id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      unique: true,
+    },
+    name: {
+      type: new DataTypes.STRING(128),
+      allowNull: false,
+    },
+    email: {
+      type: new DataTypes.STRING(128),
+      allowNull: true,
+      unique: true,
+    },
+    password: {
+      type: new DataTypes.STRING(128),
+      allowNull: true,
+    },
+    role: {
+      type: new DataTypes.STRING(32),
+    },
+    address: {
+      type: new DataTypes.STRING(128),
+    },
+    phone: {
+      type: new DataTypes.STRING(64),
+    },
   },
-  name: {
-    type: new DataTypes.STRING(128),
-    allowNull: false,
-  },
-  email: {
-    type: new DataTypes.STRING(128),
-    allowNull: true,
-    unique: true,
-  },
-  password: {
-    type: new DataTypes.STRING(128),
-    allowNull: true,
-  },
-  role: {
-    type: new DataTypes.STRING(32),
-  },
-  address: {
-    type: new DataTypes.STRING(128),
-  },
-  phone: {
-    type: new DataTypes.STRING(64),
-  },
-},{
-  timestamps: true,
-  createdAt: "createdAt",
-  updatedAt: "updatedAt",
-});
+  {
+    timestamps: true,
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+  }
+);
 
 export default UserModel;
