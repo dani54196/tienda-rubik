@@ -1,21 +1,24 @@
-@API=http://localhost:8080
+@hostname = http://localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+
 
 ### Index
-GET {{API}}
+GET {{host}}
 
 ### Get all users
-GET {{API}}/api/users
+GET {{host}}/api/users
 
 ### Get a user
-GET {{API}}/api/users/1
+GET {{host}}/api/users/1
 
 ### Create a user
-POST {{API}}/api/users
+POST {{host}}/api/users
 Content-Type: application/json
 
 {
   "name": "angela",
-  "email": "angelnaa@mail.com",
+  "email": "kike@mail.com",
   "password": "123456",
   "role": "user",
   "address": "le park",
@@ -23,7 +26,7 @@ Content-Type: application/json
 }
 
 ### Update a user
-PUT {{API}}/api/users/2
+PUT {{host}}/api/users/2
 Content-Type: application/json
 
 {
@@ -36,12 +39,12 @@ Content-Type: application/json
 }
 
 ### Delete a user
-DELETE {{API}}/api/users/2
+DELETE {{host}}/api/users/2
 
 #_______AUTH__________
 
 ### login
-POST {{API}}/api/auth/login/signin
+POST {{host}}/api/auth/login/signin
 Content-Type: application/json
 
 {
@@ -50,7 +53,9 @@ Content-Type: application/json
 }
 
 ### route auth
-GET {{API}}/api/productos
+GET {{host}}/api/productos
 Content-Type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6IkphY2tAbWFpbC5jb20iLCJpYXQiOjE2NTM3ODI3MTYsImV4cCI6MTY1NDM4NzUxNn0.un3LKKOd3IADYxqzHFByrRiyRCsr-ituv133WoObpv0
 
+### items
+GET {{host}}/api/items/2

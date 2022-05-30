@@ -10,6 +10,10 @@ class ItemRoutes {
 
   config(): void {
     this.router.get("/", itemsController.getItems);
+    this.router.get("/:id", itemsController.getItem);
+    this.router.post("/", itemsController.createItem);
+    this.router.put("/:id", itemsController.updateItem);
+    this.router.delete("/:id", itemsController.deleteItem);
   }
 }
 
